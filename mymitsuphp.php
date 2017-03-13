@@ -24,7 +24,7 @@ function mymitsu_function( $atts, $content = "" ) {
     // check if $content is valid url or not.
     if ( filter_var( $content, FILTER_VALIDATE_URL )) {
         $url = $content;
-    } elseif (filter_var( $mymitsuurl . ltrim( $content, '/' ), FILTER_VALIDATE_URL )) {
+    } elseif (isset( $content ) && filter_var( $mymitsuurl . ltrim( $content, '/' ), FILTER_VALIDATE_URL )) {
         $url = $mymitsuurl . ltrim($content, '/');
     }
 
@@ -33,7 +33,7 @@ function mymitsu_function( $atts, $content = "" ) {
 
     return sprintf( $format,
         $url,
-        sanitize_html_class( $atts['id'],'mymitsu' ),
+        sanitize_html_class( $atts['id'], 'mymitsu' ),
         intval( $atts['width'] ),
         intval( $atts['height'] )
     );
