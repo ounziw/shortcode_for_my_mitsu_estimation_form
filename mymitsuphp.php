@@ -13,19 +13,25 @@ function mymitsu_function( $atts, $content = "" ) {
     // URL for My Mitsu, a webservice for creating estimation forms.
     $mymitsuurl = 'https://my-mitsu.jp/estimation/';
 
-    $atts = shortcode_atts( array(
+    $default_atts = apply_filters( 'mymitsu_default_atts', array(
         'id' => 'mymitsu',
         'width' => 640,
         'height' => 480
-    ), $atts, 'mymitsu' );
+    ));
+
+    $atts = shortcode_atts( $default_atts, $atts, 'mymitsu' );
 
     // Default Url which shows a sample form for My Mitsu.
-    $url = 'https://my-mitsu.jp/estimation/274';
+    $url = apply_filters( 'mymitsu_default_url', 'https://my-mitsu.jp/estimation/274' );
+
     // check if $content is valid url or not.
     if ( filter_var( $content, FILTER_VALIDATE_URL )) {
         $url = $content;
     } elseif (isset( $content ) && filter_var( $mymitsuurl . ltrim( $content, '/' ), FILTER_VALIDATE_URL )) {
         $url = $mymitsuurl . ltrim($content, '/');
+    } else {
+        // Do something when $content is either invalid or empty.
+        do_action( 'mymitsu_invalid_content', $content );
     }
 
     // outputs iframe
