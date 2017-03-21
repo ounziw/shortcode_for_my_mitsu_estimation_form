@@ -3,13 +3,13 @@
 Plugin Name: shortcode for My Mitsu Estimation Form
 Plugin URI:
 Description: You can embed an estimation(calculation) form by filling in a shortcode. An estimation form is provided by a webservice in Japan called My Mitsu.
-Version: 4.0
+Version: 1.1
 Author: Fumito MIZUNO
 Author URI: https://my-mitsu.com/
 License: GPL ver.2 or later
 */
 
-function mymitsu_function( $atts, $content = "" ) {
+function mymitsu_function( $atts, $content = NULL ) {
     // URL for My Mitsu, a webservice for creating estimation forms.
     $mymitsuurl = 'https://my-mitsu.jp/estimation/';
 
@@ -27,7 +27,7 @@ function mymitsu_function( $atts, $content = "" ) {
     // check if $content is valid url or not.
     if ( filter_var( $content, FILTER_VALIDATE_URL )) {
         $url = $content;
-    } elseif (isset( $content ) && filter_var( $mymitsuurl . ltrim( $content, '/' ), FILTER_VALIDATE_URL )) {
+    } elseif (!empty( $content ) && filter_var( $mymitsuurl . ltrim( $content, '/' ), FILTER_VALIDATE_URL )) {
         $url = $mymitsuurl . ltrim($content, '/');
     } else {
         // Do something when $content is either invalid or empty.
@@ -38,7 +38,7 @@ function mymitsu_function( $atts, $content = "" ) {
     $format = '<iframe src="%s" id="%s" width="%d" height="%d"></iframe>';
 
     return sprintf( $format,
-        $url,
+        esc_url( $url ),
         sanitize_html_class( $atts['id'], 'mymitsu' ),
         intval( $atts['width'] ),
         intval( $atts['height'] )

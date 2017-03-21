@@ -16,15 +16,15 @@ My Mitsu, is a webservice in Japan, allows users to create an estimation(calcula
 https://my-mitsu.com/ (written in Japanese.)
 
 My Mitsu allows you to put a form into your WordPress website, by filling in a html code, like
-<iframe src="..." width="..." height="..."></iframe>
+&lt;iframe src="..." width="..." height="..."&gt;&lt;/iframe&gt;
 
 This plugin allows you to output an iframe html tag in a simple way. Simply filling in a shortcode will ouput an iframe html code.
 
-[mymitsu]274[/mymitsu] will output <iframe src="https://my-mitsu.jp/estimation/274" id="mymitsu" width="640" height="480"></iframe>
+[mymitsu]274[/mymitsu] will output &lt;iframe src="https://my-mitsu.jp/estimation/274" id="mymitsu" width="640" height="480"&gt;&lt;/iframe&gt;
 
 Optionally, a shortcode accepts an ID, width, and height as attributes.
 
-[mymitsu id="myform" width="800" height="600"]274[/mymitsu] will output <iframe src="https://my-mitsu.jp/estimation/274" id="myform" width="800" height="600"></iframe>
+[mymitsu id="myform" width="800" height="600"]274[/mymitsu] will output &lt;iframe src="https://my-mitsu.jp/estimation/274" id="myform" width="800" height="600"&gt;&lt;/iframe&gt;
 
 * Note * In order to create an estimation form, you need to register My Mitsu https://my-mitsu.jp/register .
 
@@ -38,6 +38,9 @@ Optionally, a shortcode accepts an ID, width, and height as attributes.
 1. This plugin outputs an iframe.
 
 == Changelog ==
+
+= 1.1 =
+* default for $content is NULL
 
 = 1.0 =
 * initial release
