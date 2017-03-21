@@ -1,4 +1,4 @@
-=== Shortcode for My Mitsu Estimation FOrm ===
+=== Shortcode for My Mitsu Estimation Form ===
 Contributors: ounziw
 Donate link: http://pledgie.com/campaigns/8706
 Description: You can embed an estimation(calculation) form, provided by a webservice in Japan called My Mitsu.
@@ -27,6 +27,20 @@ Optionally, a shortcode accepts an ID, width, and height as attributes.
 [mymitsu id="myform" width="800" height="600"]274[/mymitsu] will output &lt;iframe src="https://my-mitsu.jp/estimation/274" id="myform" width="800" height="600"&gt;&lt;/iframe&gt;
 
 * Note * In order to create an estimation form, you need to register My Mitsu https://my-mitsu.jp/register .
+
+
+Filter Sample
+
+This plugin allows you to set your default values for ID, width, and height. You can alter them by hooking the "mymitsu_default_atts" filter. Here is a sample code.
+
+`add_filter( 'mymitsu_default_atts', 'my_atts' );
+ function my_atts() {
+     return array(
+         'id' => 'mymitsu',
+         'width' => 480,
+         'height' => 640
+     );
+ }`
 
 == Installation ==
 
