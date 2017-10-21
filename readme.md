@@ -1,6 +1,6 @@
 # 自動計算&見積書作成フォームをWordPressに埋め込むショートコードを生成するプラグイン
 
-無料で利用できる自動見積もりフォーム生成サービス[マイ見積](https://my-mitsu.jp/)で生成した見積もりフォームを、WordPressで作成したホームページの記事本文に埋め込む。
+自動見積もりフォーム生成サービス[マイ見積](https://my-mitsu.jp/)で生成した見積もりフォームを、WordPressで作成したホームページの記事本文に埋め込む。
 
 このプラグインを導入すると、iframe html tag を簡単に出力できます。（ショートコードを記述すると、iframe html を出力します。）
 
@@ -13,6 +13,10 @@
 
 ## マイ見積の使い方
 [自動見積フォーム作成方法](https://my-mitsu.com/howto)を参照。
+
+## WordPressプラグインについて
+マイ見積で作成したフォームは、iframe htmlで埋め込むことができる。このため、WordPressの他、pulseCMS、baserCMS、concrete5など、どんなホームページにも埋め込み可能。
+ただし、iframeで埋め込む場合はhtmlの知識が要求される。このためhtmlコードを書かなくても埋め込みできるように、WordPressプラグインを作成し、無償公開した。
 
 ## ショートコード例
 [mymitsu]274[/mymitsu] と入力すると <iframe src=”https://my-mitsu.jp/estimation/274″ id=”mymitsu” width=”640″ height=”480″></iframe> を出力します。
